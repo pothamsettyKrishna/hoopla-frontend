@@ -1,0 +1,64 @@
+.toolbar{
+    background-color: whitesmoke;
+}
+ .pointer{
+     cursor: pointer;
+ }
+.right{
+    margin-left: 100px;
+}
+img{
+    width: 200px;
+    height: 150px;
+}
+.head{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(37, 173, 197);
+    padding-top: 15px;
+}
+
+.c:hover{
+    transform: scale(1.2,1);
+    color: rgb(19, 153, 216);
+    
+}
+.db{
+    height: 400px;
+    padding-top: 5%;
+    width: 1200px;
+    padding-left: 5%;
+
+    
+}
+.c1:hover{
+    
+    color: rgb(19, 153, 216);
+    
+}
+
+.c3{
+        border-color: rgb(14, 145, 221);
+        padding-bottom: 20px;
+        
+}
+.c3:hover{
+    transform: scale(1.03,1.03);
+}
+
+.card-deck{
+    padding-bottom: 10px;
+}
+.c7{
+    margin: 15px;
+    width: 250px;
+    height: 420px;
+    /* padding: 15px; */
+
+}
+.ctext{
+    color: rgb(15, 165, 224);
+}
+
+.c7:hover{
+    transform: scale(1.03,1.03);
+}

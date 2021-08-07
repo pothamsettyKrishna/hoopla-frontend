@@ -1,0 +1,42 @@
+
+  <div class="container">
+    <div class="row">
+  <div class="col-md-4 offset-4">
+    <mat-card  class="panel" *ngIf="loggeduser==null">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="form">
+        <mat-card-header>
+            <mat-card-title class="panel-heading"> <h4>Login</h4> </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>          
+          <mat-form-field appearance="legacy" class="full-width">
+            <mat-label>Username</mat-label>
+            <input  matInput id="un"  placeholder="Username" formControlName="userName" required name="username">
+          </mat-form-field>
+          <div id="userNameError">
+            <span *ngIf="loginForm.controls.userName.errors?.required && loginForm.controls.userName.dirty" class="text-danger">Field Required</span>
+            <span *ngIf="loginForm.controls.userName.errors?.pattern && loginForm.controls.userName.dirty" class="text-danger"> Enter valid mail Id </span>
+          </div>
+          <mat-form-field appearance="legacy" class="full-width">
+            <mat-label>Password</mat-label>
+            <input   matInput id="pw" placeholder="Password" formControlName="password"  type="password" required name="password">
+          </mat-form-field>
+          <div *ngIf="loginForm.controls.password.errors?.required && loginForm.controls.password.dirty" class="text-danger">Field Required</div>
+        
+        </mat-card-content>
+        <mat-card-footer>
+          <div>
+             &nbsp; &nbsp; <button class="btn btn-primary" [disabled]="loginForm.invalid"  (click)="emitevent()" id="btn">Login</button>
+          </div>
+          <div *ngIf="errorMessage!=null" id="errorMessage">
+              <span class="text-danger"> &nbsp;{{errorMessage}} </span>
+          </div>
+          <br>
+          
+        </mat-card-footer>
+      </form>
+    </mat-card>
+  </div>
+  </div>
+  </div>
+
+

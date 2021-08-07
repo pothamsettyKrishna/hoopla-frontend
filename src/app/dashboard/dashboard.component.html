@@ -1,0 +1,102 @@
+
+<mat-toolbar class="toolbar" *ngIf = "loggeduser!=null">
+    <div class="col-md-7 form-inline">
+        <div class="row">
+            <div *ngFor = "let cat of categories">
+                <div class="font-weight-bold pointer text-center c1" (click)="viewcategory(cat)" id="cat"> {{cat | uppercase}} &nbsp;&nbsp;&nbsp;&nbsp; </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 form-inline right">
+        <div class="row">
+            <input type="text" class="form-control" placeholder="Search for a product" name="search" 
+                                [(ngModel)]="searchitem" id="searchitem" #sm (keypress)="searchItem(sm.value)">
+            <button  mat-raised-button color="primary" (click)="searchItem(sm.value)">Search</button>
+        </div>
+    </div>
+    
+    
+</mat-toolbar>
+
+
+<div *ngIf="item==null && select==null"> 
+    <img class="card-img db" [src]="pic1" alt="image">
+</div> 
+
+
+
+<div *ngIf="item!=null">
+    <div class="container mt-1">
+        <div class="col-md-12">
+            <span><h3 class="head">Showing products of {{item|titlecase}}</h3></span>
+        </div>
+        <div class="row">
+            <mat-card class="col-md-3 col-12 c7"  *ngFor="let data of prodDetails; let i = index"  (click)="prodDesc(data.pName)">
+                <div class="c7">
+                    <div class="card-display">
+                        <!-- <mat-card-title> -->
+                            <img mat-card-lg-image class="card-img" class="card text-center" [src]="imgurl+data.image" alt="image">
+                        <!-- </mat-card-title> -->
+                        <br>
+                        <mat-card-title class="ctext">
+                            <div class="pointer" (click)="prodDesc(data.pName)" >{{data.pName}}</div> 
+                        </mat-card-title>
+                        <mat-card-content>
+                            <div class="text-warning badge bg-warning badge-pill topremove text-light mt-0">{{data.pRating}}/5 </div>
+                        <br><div> {{data.pDescription | titlecase}} </div>
+                        </mat-card-content>
+                        <mat-card-content>
+                            <mat-card-actions>
+                                <button mat-raised-button color="primary"  (click)="prodDesc(data.pName)">View</button> &nbsp; &nbsp; {{data.price | currency:'INR'}}
+                            </mat-card-actions>
+                        </mat-card-content>
+                        
+                    </div>
+                </div>
+                
+                    
+                
+            </mat-card>
+        </div>
+        
+        
+    </div>
+
+</div>
+
+
+<br>
+
+
+<div *ngIf="searchedprod!=null">
+    <div class="container mt-1">
+        <div class="row">
+                <mat-card class="col-md-3 col-12 c7"  *ngFor="let data of searchDetails; let i = index"  (click)="prodDesc(data.pName)">
+                    <div class="c7">
+                        <div class="card-display">
+                            <!-- <mat-card-title> -->
+                                <img mat-card-lg-image class="card-img" class="card text-center" [src]="imgurl+data.image" alt="image">
+                            <!-- </mat-card-title> -->
+                            <br>
+                            <mat-card-title class="ctext">
+                                <div class="pointer" (click)="prodDesc(data.pName)" >{{data.pName}}</div> 
+                            </mat-card-title>
+                            <mat-card-content>
+                                <div class="text-warning badge bg-warning badge-pill topremove text-light mt-0">{{data.pRating}}/5 </div>
+                            <br><div> {{data.pDescription | titlecase}} </div>
+                            </mat-card-content>
+                            <mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-raised-button color="primary"  (click)="prodDesc(data.pName)">View</button> &nbsp; &nbsp; {{data.price | currency:'INR'}}
+                                </mat-card-actions>
+                            </mat-card-content>
+                            
+                        </div>
+                    </div>
+                </mat-card>
+            </div>        
+    </div>
+</div>
+
+
+

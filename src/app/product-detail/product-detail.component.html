@@ -1,0 +1,41 @@
+
+<div class="row margin" *ngIf="pdetails">
+    <div class="col-md-4 offset-1">
+        <mat-card>
+            <img mat-card-image [src]="'assets/'+pdetails[0].image" [alt]="pdetails[0].image">
+        </mat-card>
+    </div>
+   
+    <div class="col-md-4">
+        <mat-card >                
+                    <div class="text-primary"><h3>{{pdetails[0].pName}}</h3></div>
+                    <div class="text-secondary">By Seller <h4>{{pdetails[0].pSeller.s_Id}}</h4></div>
+                    <div><b>Description:</b></div>
+                    <div>{{pdetails[0].pDescription}}</div>
+                    <br>
+                    <div><b>Specification:</b>
+                    <ul>
+                        <li><b>Color:</b>&nbsp; {{pdetails[0].color}}</li>
+                    </ul>
+                    </div>
+                    <div><b>Quantity:</b></div>
+                    <div>{{pdetails[0].pSeller.pQuantity}}</div>
+                    <div><h3>Price:&nbsp;{{(pdetails[0].price*(1-pdetails[0].pSeller.pDiscount)) | currency:"INR"}}</h3></div>
+                    <div class="text-secondary"><del>{{pdetails[0].price | currency:'INR'}}</del></div>
+                    <div class="text-warning"> {{pdetails[0].pSeller.pDiscount*100}}% + 
+                         <span class="text-body">{{pdetails[0].pSeller.pShippingCharges}} Shipping charges</span> </div><br>
+                    <button class="btn btn-success" (click)="buy()" [disabled]="pdetails[0].pSeller.pQuantity==0">Buy Now</button>&nbsp;&nbsp;
+                    <button class="btn btn-warning" type="button" (click)="back()">Go Back</button>&nbsp;&nbsp;
+                    <span *ngIf="pdetails[0].pSeller.pQuantity==0">
+                        <button class="btn btn-primary" (click)="notifyme()" [disabled]="pdetails[0].pSeller.pQuantity!=0">Notify me</button>
+                    </span>
+                   
+                    <div *ngIf="successMessage!=null" class="text-success">
+                        {{successMessage}}
+                    </div>
+                    <div *ngIf="pdetails[0].pSeller.pQuantity==0" class="text-primary">
+                        {{notifymsg}}
+                    </div>
+        </mat-card>
+    </div>
+</div>

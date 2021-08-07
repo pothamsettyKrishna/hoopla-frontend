@@ -1,0 +1,17 @@
+.pointer{
+    cursor: pointer;
+}
+.c:hover{
+    transform: scale(1.05,1);
+    
+}
+.order{
+    color: blue;
+}
+.vo{
+    background-color: wheat;
+}
+.noorder{
+    padding-top: 70px;
+    padding-left: 500px;
+}

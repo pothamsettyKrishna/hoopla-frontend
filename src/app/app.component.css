@@ -1,0 +1,33 @@
+#img1{
+    height: 100px;
+    width: 100px;
+}
+.tab {position:absolute;left:150px; }
+
+.c{
+    font-weight: bold;
+}
+
+.c:hover{
+    transform: scale(1.2,1);
+    font-weight: bold;
+    
+}
+.ani{
+    font-size: larger;
+    /* color: white; */
+    font-weight: bolder;
+    animation-name: exampleAnimation;
+    animation-duration: 10s;
+    /* animation-timing-function: linear; */
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    /* animation-direction: alternate; */
+
+}
+@keyframes exampleAnimation {
+    0% { color: red; }
+    25% { color: yellow;}
+    50%  { color: blue;}
+    100% { color:white;}
+}
